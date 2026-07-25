@@ -5,4 +5,5 @@ class UploadResponse(BaseModel):
     filename: str
     pages: int
     characters: int
+    chunks: int
     status: str

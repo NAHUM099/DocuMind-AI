@@ -26,10 +26,12 @@ def upload_pdf(file: UploadFile = File(...)):
     file_path = pdf_service.save_pdf(file)
 
     text, pages = pdf_service.extract_text(file_path)
+    chunks = pdf_service.split_text(text)
 
     return UploadResponse(
-        filename=file.filename,
-        pages=pages,
-        characters=len(text),
-        status="processed"
-    )
+    filename=file.filename,
+    pages=pages,
+    characters=len(text),
+    chunks=len(chunks),
+    status="processed"
+    )   

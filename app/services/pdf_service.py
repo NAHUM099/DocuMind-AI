@@ -5,6 +5,7 @@ from fastapi import UploadFile
 from pypdf import PdfReader
 
 from app.config.settings import settings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
 class PDFService:
@@ -35,3 +36,12 @@ class PDFService:
                 text += extracted + "\n"
 
         return text, len(reader.pages)
+
+    def split_text(self, text: str) -> list[str]:
+
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=1000,
+            chunk_overlap=200
+        )
+
+        return splitter.split_text(text)
