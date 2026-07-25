@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocuMind AI</title>
 
     <link rel="stylesheet" href="/static/css/style.css">
@@ -12,29 +13,36 @@
 <div class="container">
 
     <h1>DocuMind AI</h1>
+    <p>Upload a PDF and ask questions about its content.</p>
 
-    <input
-        type="file"
-        id="pdfFile"
-        accept=".pdf"
-    >
+    <div class="upload-section">
 
-    <button id="uploadButton">
-        Subir PDF
-    </button>
+        <input
+            type="file"
+            id="pdfFile"
+            accept=".pdf">
 
-    <hr>
+        <button id="uploadButton">
+            Upload PDF
+        </button>
 
-    <textarea
-        id="question"
-        placeholder="Escribe tu pregunta..."
-    ></textarea>
+        <p id="fileInfo"></p>
 
-    <button id="askButton">
-        Preguntar
-    </button>
+    </div>
 
-    <pre id="response"></pre>
+    <div class="chat-section">
+
+        <div id="chat"></div>
+
+        <textarea
+            id="question"
+            placeholder="Type your question..."></textarea>
+
+        <button id="askButton">
+            Send
+        </button>
+
+    </div>
 
 </div>
 

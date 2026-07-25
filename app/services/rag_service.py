@@ -2,6 +2,9 @@ from app.services.embedding_service import EmbeddingService
 from app.services.gemini_service import GeminiService
 from app.services.vector_store_service import VectorStoreService
 
+from pathlib import Path
+from app.config.settings import settings
+
 
 class RAGService:
 
@@ -11,6 +14,14 @@ class RAGService:
         self.gemini = GeminiService()
 
     def ask(self, question: str) -> str:
+        
+        vector_store_path = Path(settings.VECTOR_STORE_PATH)
+
+        if not (vector_store_path / "index.faiss").exists():
+            return (
+                "No document has been uploaded yet. "
+                "Please upload a PDF before asking questions."
+            )
 
         db = self.vector_store.load(
             self.embedding_service.get_embeddings()
