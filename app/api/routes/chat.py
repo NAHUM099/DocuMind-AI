@@ -4,7 +4,7 @@ from app.api.schemas.chat_schema import ChatRequest, ChatResponse
 from app.services.rag_service import RAGService
 
 router = APIRouter(
-    prefix="/api/v1",
+    prefix="/api",
     tags=["Chat"]
 )
 
