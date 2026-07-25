@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from app.api.routes.health import router as health_router
 from app.api.routes.chat import router as chat_router
 from app.api.routes.upload import router as upload_router
-
+from app.core.exceptions import global_exception_handler
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -20,6 +20,10 @@ templates = Jinja2Templates(directory="app/templates")
 
 app.include_router(health_router)
 
+app.add_exception_handler(
+    Exception,
+    global_exception_handler
+)
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
