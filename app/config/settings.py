@@ -11,7 +11,7 @@ class Settings:
     """
 
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-    MODEL_NAME = os.getenv("MODEL_NAME", "gemini-2.5-flash")
+    MODEL_NAME = os.getenv("MODEL_NAME", "gemini-3.6-flash")
 
     UPLOAD_FOLDER = "uploads"
     VECTOR_STORE_PATH = "vectorstore"
