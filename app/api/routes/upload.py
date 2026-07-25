@@ -3,12 +3,17 @@ from fastapi import APIRouter, File, HTTPException, UploadFile
 from app.api.schemas.upload_schema import UploadResponse
 from app.services.pdf_service import PDFService
 
+from app.services.embedding_service import EmbeddingService
+from app.services.vector_store_service import VectorStoreService
+
 router = APIRouter(
     prefix="/api",
     tags=["Upload"]
 )
 
 pdf_service = PDFService()
+embedding_service = EmbeddingService()
+vector_store_service = VectorStoreService()
 
 
 @router.post(
@@ -27,6 +32,11 @@ def upload_pdf(file: UploadFile = File(...)):
 
     text, pages = pdf_service.extract_text(file_path)
     chunks = pdf_service.split_text(text)
+
+    vector_store_service.save(
+    chunks=chunks,
+    embeddings=embedding_service.get_embeddings()
+)
 
     return UploadResponse(
     filename=file.filename,
