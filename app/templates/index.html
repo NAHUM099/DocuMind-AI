@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>DocuMind AI</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>DocuMind AI</h1>
+
+    <input
+        type="file"
+        id="pdfFile"
+        accept=".pdf"
+    >
+
+    <button id="uploadButton">
+        Subir PDF
+    </button>
+
+    <hr>
+
+    <textarea
+        id="question"
+        placeholder="Escribe tu pregunta..."
+    ></textarea>
+
+    <button id="askButton">
+        Preguntar
+    </button>
+
+    <pre id="response"></pre>
+
+</div>
+
+<script src="/static/js/app.js"></script>
+
+</body>
+</html>
