@@ -8,7 +8,7 @@ from app.services.vector_store_service import VectorStoreService
 from pathlib import Path
 
 router = APIRouter(
-    prefix="/api",
+    prefix="/api/v1",
     tags=["Upload"]
 )
 

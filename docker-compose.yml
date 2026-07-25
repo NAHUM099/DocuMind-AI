@@ -1,5 +1,6 @@
 services:
   documind-ai:
+    build: .
     image: documind-ai
     container_name: documind-container
 
