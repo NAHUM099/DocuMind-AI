@@ -1,14 +1,14 @@
 from fastapi import APIRouter
 
 from app.api.schemas.chat_schema import ChatRequest, ChatResponse
-from app.services.gemini_service import GeminiService
+from app.services.rag_service import RAGService
 
 router = APIRouter(
     prefix="/api",
     tags=["Chat"]
 )
 
-gemini_service = GeminiService()
+rag_service = RAGService()
 
 
 @router.post(
@@ -17,7 +17,7 @@ gemini_service = GeminiService()
 )
 def chat(request: ChatRequest) -> ChatResponse:
 
-    answer = gemini_service.ask(request.question)
+    answer = rag_service.ask(request.question)
 
     return ChatResponse(
         answer=answer
