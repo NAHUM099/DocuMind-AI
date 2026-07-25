@@ -5,6 +5,7 @@ from app.services.pdf_service import PDFService
 
 from app.services.embedding_service import EmbeddingService
 from app.services.vector_store_service import VectorStoreService
+from pathlib import Path
 
 router = APIRouter(
     prefix="/api",
@@ -37,6 +38,7 @@ def upload_pdf(file: UploadFile = File(...)):
     chunks=chunks,
     embeddings=embedding_service.get_embeddings()
 )
+    Path(file_path).unlink()
 
     return UploadResponse(
     filename=file.filename,
