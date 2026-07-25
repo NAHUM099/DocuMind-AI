@@ -125,3 +125,22 @@ button:disabled{
     background:#ecfdf5;
 
 }
+
+.message.ai h1,
+.message.ai h2,
+.message.ai h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.message.ai ul {
+    padding-left: 25px;
+}
+
+.message.ai li {
+    margin-bottom: 5px;
+}
+
+.message.ai strong {
+    font-weight: bold;
+}

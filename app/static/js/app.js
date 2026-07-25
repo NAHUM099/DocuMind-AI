@@ -86,7 +86,7 @@ async function askQuestion() {
         chat.innerHTML += `
         <div class="message ai">
             <strong>DocuMind AI</strong><br><br>
-            ${data.answer}
+            ${marked.parse(data.answer)}
         </div>
         `;
 
